@@ -44,7 +44,15 @@
     neovim
     wget
     alacritty
+    
+    ripgrep
+    fd
+    lazygit
+    fzf
   ];
+
+  programs.hyprland.enable = true;
+  programs.niri.enable = true;
 
   # Set default editor
   environment.variables.EDITOR = "neovim";
