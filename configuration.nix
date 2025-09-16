@@ -28,7 +28,9 @@
   users.users.crimsx = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      fastfetch
+    ];
   };
 
   # Allow unfree packages
@@ -49,6 +51,9 @@
     fd
     lazygit
     fzf
+
+    btop
+    tmux
   ];
 
   programs.hyprland.enable = true;
