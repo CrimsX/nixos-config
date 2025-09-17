@@ -46,6 +46,8 @@
     neovim
     wget
     alacritty
+    waybar
+    fuzzel
     
     ripgrep
     fd
