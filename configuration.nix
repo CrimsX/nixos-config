@@ -56,6 +56,7 @@
 
     btop
     tmux
+    cava
   ];
 
   programs.niri.enable = true;
