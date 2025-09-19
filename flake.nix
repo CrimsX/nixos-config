@@ -33,6 +33,28 @@
 
   outputs = 
     { self, nixpkgs, home-manager, stylix, ... }:
+/*
+    let
+      inherit (nixpkgs) lib;
+      supportedSystems = [
+        "x86_64-linux"
+	"aarch64-linux"
+      ];
+      forAllSystems = f: lib.genAttrs supportedSystems (system: f system);
+    in {
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.$(system}.crimsx);
+
+    nixosModules = {
+      waybar = import ./nixos/modules/waybar.nix;
+      default = { ... }: {
+        imports = [
+	  home-manager.nixosModules.ome-manager
+	  self.nixosModules.
+	];
+      };
+    };
+*/
+
     {
       nixosConfigurations.L7490 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
