@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.05";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +14,21 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #neovim = {
+    #  url =
+    #  flake = false;
+    #};
+
+    #zen-browser = {
+    #  url =
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+
+    #thunderbird-catppuccin = {
+    #  url =
+    #  flake = false;
+    #};
   };
 
   outputs = 
