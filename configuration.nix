@@ -63,7 +63,7 @@
   programs.niri.enable = true;
 
   # Set default editor
-  environment.variables.EDITOR = "neovim";
+  environment.variables.EDITOR = "nvim";
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
