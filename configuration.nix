@@ -67,6 +67,17 @@
     hyprpaper
     lightdm
     tlp
+    ghostty
+    anyrun
+    rofi
+    fish
+    starship
+    wofi
+    nemo
+    swayidle
+    nautilus
+    swaybg
+    swww
   ];
 
   programs.hyprland.enable = true;

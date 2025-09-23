@@ -56,6 +56,18 @@
 */
 
     {
+    /*
+      nixosConfigurations = {
+        test = nixpkgs.lib.nixosSystem {
+	  system = "x86_64-linux";
+	  specialArgs = { inherit inputs; };
+	  modules = [
+	    ./hosts/workstation
+	    stylix.nixosModules.stylix
+	  ];
+	};
+      };
+      */
       nixosConfigurations.L7490 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
