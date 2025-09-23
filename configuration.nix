@@ -57,6 +57,16 @@
     btop
     tmux
     cava
+
+    swaylock
+    hyprlock
+    kitty
+    yazi
+    thunar
+    mpvpaper
+    hyprpaper
+    lightdm
+    tlp
   ];
 
   programs.hyprland.enable = true;
