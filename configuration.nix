@@ -78,6 +78,10 @@
     nautilus
     swaybg
     swww
+    hypridle
+    hyprcursor
+    hyprshot
+    swaync
   ];
 
   programs.hyprland.enable = true;

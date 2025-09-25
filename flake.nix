@@ -5,6 +5,20 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-25.05";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    niri.url = "github:YaLTeR/niri";
+    niri-stable.url = "github:YaLTeR/niri/v25.08"
+
+    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
+    xwayland-satellite-stable.url = "github:Supreeeme/xwayland-satellite/v0.7";
+
+    niri.flake = false;
+    niri-stable.flake = false;
+
+    xwayland-satellite.flake = false;
+    xwayland-satellite-stable.flake = false;
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,9 +45,13 @@
     #};
   };
 
-  outputs = 
-    { self, nixpkgs, home-manager, stylix, ... }:
-/*
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    stylix,
+    ...
+    } @ inputs:
     let
       inherit (nixpkgs) lib;
       supportedSystems = [
@@ -53,7 +71,6 @@
 	];
       };
     };
-*/
 
     {
     /*
