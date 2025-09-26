@@ -1,5 +1,7 @@
 {
-  description = "My NixOS Flake";
+  description = "
+    My NixOS Flake
+  ";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -53,13 +55,18 @@
     ...
     } @ inputs:
     let
+      # inherit (self) outputs;
       inherit (nixpkgs) lib;
       supportedSystems = [
         "x86_64-linux"
-	"aarch64-linux"
       ];
       forAllSystems = f: lib.genAttrs supportedSystems (system: f system);
-    in {
+      # forAllSystems = nixpkgs.libgenAttrs systems;
+      # user = "";
+      # hostname = "";
+    in
+    {
+
     formatter = forAllSystems (system: nixpkgs.legacyPackages.$(system}.crimsx);
 
     nixosModules = {
