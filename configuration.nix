@@ -62,7 +62,7 @@
     hyprlock
     kitty
     yazi
-    thunar
+    #thunar
     mpvpaper
     hyprpaper
     lightdm
@@ -81,7 +81,7 @@
     hypridle
     hyprcursor
     hyprshot
-    swaync
+    #swaync
   ];
 
   programs.hyprland.enable = true;

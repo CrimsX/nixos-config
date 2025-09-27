@@ -66,12 +66,11 @@
       nixosConfigurations = {
         L7490 = nixpkgs.lib.nixosSystem {
 	  modules = [
-	    ./hosts/L7490
-	    stylix.nixosModules.stylix
+	    #./hosts/L7490
 	    ./configuration.nix
 	    #./hardware-configuration.nix
 	    ({ pkgs, ... }: {
-	      programs.nvim.defaultEditor = true;
+	      programs.neovim.defaultEditor = true;
 	    })
 	    home-manager.nixosModules.home-manager {
 	      home-manager = {
@@ -86,28 +85,23 @@
 	      };
 	      */
 	    }
-	    stylix.nixosModules.stylix
+	    inputs.stylix.nixosModules.stylix
+	    /*
+	    waybar = import ./nixos/modules/waybar.nix;
+	    default = { ... }: {
+	      imports = [
+	        #home-manager.nixosModules.home-manager
+		#self.nixosModules.
+	      ];
+	    };
+	    */
 	  ];
 	  specialArgs = {
 	    inherit inputs system user;
 	    hostname = "L7490";
 	  };
 	};
-	forAllSystems = f: lib.genAttrs supportedSystems (system: f system);
-	# forAllSystems = nixpkgs.libgenAttrs systems;
-	in {
-	  formatter = forAllSystems (system: nixpkgs.legacyPackages.$(system}.crimsx);
-	  nixosModules = {
-	    waybar = import ./nixos/modules/waybar.nix;
-	    default = { ... }: {
-	      imports = [
-	        home-manager.nixosModules.ome-manager
-		self.nixosModules.
-	      ];
-	    };
-	  };
-	};
+	forAllSystems = nixpkgs.libgenAttrs system;
       };
     };
-  };
-};
+  }
