@@ -45,7 +45,6 @@
     git
     neovim
     wget
-    alacritty
     waybar
     fuzzel
     
@@ -58,30 +57,51 @@
     tmux
     cava
 
+    # Screen locker
     swaylock
     hyprlock
+
+    # Terminal
+    alacritty
     kitty
+    ghostty
+
+    # App launcher
+    rofi
+    wofi
+    anyrun
+
+    # File manager
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
     yazi
-    #thunar
+    nautilus
+    nemo
+
+    # Wallpaper
+    swaybg
     mpvpaper
     hyprpaper
+    #yin
+    swww
+
+    # Idle daemon
+    swayidle
+    hypridle
+
     lightdm
     tlp
-    ghostty
-    anyrun
-    rofi
     fish
     starship
-    wofi
-    nemo
-    swayidle
-    nautilus
-    swaybg
-    swww
-    hypridle
     hyprcursor
     hyprshot
-    #swaync
+    #zen
+
+    # Notifications
+    dunst
+    swaynotificationcenter
   ];
 
   programs.hyprland.enable = true;
