@@ -54,6 +54,7 @@
     } @ inputs:
     let
     system = "x86_64-linux";
+    lib = nixpkgs.lib;
     user = "crimsx";
 
     pkgs = import nixpkgs {
@@ -64,6 +65,16 @@
     };
     in {
       nixosConfigurations = {
+        /*
+	host = lib.nixosSystem {
+	  inherit system;
+	  modules = [
+	    ./hosts/$()/configuration.nix
+	  ];
+	  specialArgs = { inherit inputs username; };
+	};
+	*/
+
         L7490 = nixpkgs.lib.nixosSystem {
 	  modules = [
 	    #./hosts/L7490
@@ -102,6 +113,17 @@
 	  };
 	};
 	forAllSystems = nixpkgs.libgenAttrs system;
+
+	/*
+	homeConfigurations = {
+	  "${user}@..." = home-manager.libhomeManagerConfiguration {
+	    inherit pkgs;
+	    extraSpecialArgs = { inherit inputs username; };
+	    modules = [
+	      ./
+	    ];
+	};
+	*/
       };
     };
   }
