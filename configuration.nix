@@ -6,6 +6,26 @@
       ./hardware-configuration.nix
     ];
 
+  /*
+  hardware.disko.enable = true;
+  programs.nix-ld.enable = true;
+  common.services.appimage.enable = true;
+  boot.loader.grub = {
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+  };
+
+  networking.hostName = "";
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [
+    22
+    80
+    443
+  ];
+  networking.firewall.allowedUDPPorts = [
+  ];
+  */
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
