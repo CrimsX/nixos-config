@@ -122,6 +122,11 @@
     # Notifications
     dunst
     swaynotificationcenter
+
+    steam
+    discord-ptb
+    vesktop
+    bitwarden
   ];
 
   programs.hyprland.enable = true;
