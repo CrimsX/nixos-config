@@ -127,6 +127,9 @@
     discord-ptb
     vesktop
     bitwarden
+    godot
+    obs-studio
+    obsidian
   ];
 
   programs.hyprland.enable = true;
