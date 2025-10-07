@@ -130,6 +130,16 @@
     godot
     obs-studio
     obsidian
+
+    ffmpeg
+    imagemagick
+    python3
+    pyprland
+    
+    catppuccin-gtk
+    catppuccin-kvantum
+    catpuccin-cursors
+    papirus-icon-theme
   ];
 
   programs.hyprland.enable = true;
