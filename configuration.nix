@@ -138,7 +138,7 @@
     
     catppuccin-gtk
     catppuccin-kvantum
-    catpuccin-cursors
+    #catpuccin-cursors
     papirus-icon-theme
   ];
 
