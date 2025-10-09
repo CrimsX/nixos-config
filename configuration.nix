@@ -122,6 +122,7 @@
     # Notifications
     dunst
     swaynotificationcenter
+    mako
 
     steam
     discord-ptb
@@ -140,6 +141,11 @@
     catppuccin-kvantum
     #catpuccin-cursors
     papirus-icon-theme
+
+    syncthing
+    zathura
+
+    pipes
   ];
 
   programs.hyprland.enable = true;
