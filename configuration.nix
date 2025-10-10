@@ -151,6 +151,11 @@
   programs.hyprland.enable = true;
   programs.niri.enable = true;
 
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["crimsx"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # Set default editor
   environment.variables.EDITOR = "nvim";
 
