@@ -65,9 +65,12 @@
     git
     neovim
     wget
+
+
+    # 
     waybar
-    fuzzel
-    
+
+    # Neovim
     ripgrep
     fd
     lazygit
@@ -90,6 +93,7 @@
     rofi
     wofi
     anyrun
+    fuzzel
 
     # File manager
     xfce.thunar
@@ -124,6 +128,7 @@
     swaynotificationcenter
     mako
 
+    # Apps
     steam
     discord-ptb
     vesktop
@@ -137,6 +142,7 @@
     python3
     pyprland
     
+    # Theme
     catppuccin-gtk
     catppuccin-kvantum
     #catpuccin-cursors
