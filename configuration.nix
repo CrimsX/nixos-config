@@ -152,6 +152,13 @@
     zathura
 
     pipes
+    wl-clipboard
+    foot
+    mullvad-vpn
+    mpv
+    vlc
+    anki
+    qbittorrent
   ];
 
   programs.hyprland.enable = true;
