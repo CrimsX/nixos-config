@@ -121,6 +121,8 @@
     starship
     hyprcursor
     hyprshot
+    grim
+    slurp
     #zen
 
     # Notifications
@@ -174,6 +176,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    iosevka
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment? Yes :D
