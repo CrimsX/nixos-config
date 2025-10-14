@@ -161,6 +161,9 @@
     vlc
     anki
     qbittorrent
+
+    aseprite
+    godot
   ];
 
   programs.hyprland.enable = true;
