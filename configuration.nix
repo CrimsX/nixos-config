@@ -164,6 +164,10 @@
 
     aseprite
     godot
+
+    zed-editor
+    librewolf
+    ani-cli
   ];
 
   programs.hyprland.enable = true;
