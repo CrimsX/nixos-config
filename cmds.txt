@@ -1,0 +1,5 @@
+# build with flakes
+nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
+
+# build with flakes | nixos-generators
+nix run nixpkgs#nixos-generators -- --format iso --flake /path/to/flakes#exampleIso -o result

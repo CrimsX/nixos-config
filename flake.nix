@@ -112,6 +112,14 @@
 	    hostname = "L7490";
 	  };
 	};
+
+	exampleIso = nixpkgs.lib.nixosSystem {
+	  specialArgs = { inherit inputs; };
+	  modules = [
+	    ./hosts/isoimage/configuration.nix
+	  ];
+	};
+
 	forAllSystems = nixpkgs.libgenAttrs system;
 
 	/*
