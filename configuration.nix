@@ -168,6 +168,9 @@
     zed-editor
     librewolf
     ani-cli
+
+    lsfg-vk
+    lsfg-vk-ui
   ];
 
   programs.hyprland.enable = true;
