@@ -3,3 +3,8 @@ nix build .#nixosConfigurations.exampleIso.config.system.build.isoImage
 
 # build with flakes | nixos-generators
 nix run nixpkgs#nixos-generators -- --format iso --flake /path/to/flakes#exampleIso -o result
+
+sudo nix-collect-garbage -d
+find /nix/store -type f -name node
+
+nixos-install --flake https://github.com/_/_
