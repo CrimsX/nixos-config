@@ -103,6 +103,7 @@
     yazi
     nautilus
     nemo
+    dolphin
 
     # Wallpaper
     swaybg
@@ -171,6 +172,23 @@
 
     lsfg-vk
     lsfg-vk-ui
+
+    graphite
+    pixieditor
+    winboat
+    stasis
+    ardour
+    pinta
+    lmms
+    kdePackages.kolourpaint
+
+    zoxide
+    bat
+    eza
+
+    grim
+    slurp
+    helix
   ];
 
   programs.hyprland.enable = true;
