@@ -1,11 +1,11 @@
 {
-  description = "
-    My NixOS Flake
-  ";
+  description = "My NixOS Flake";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-25.05";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak";
@@ -30,108 +30,39 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    #neovim = {
-    #  url =
-    #  flake = false;
-    #};
-
-    #zen-browser = {
-    #  url =
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    #thunderbird-catppuccin = {
-    #  url =
-    #  flake = false;
-    #};
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-    } @ inputs:
-    let
-    system = "x86_64-linux";
-    lib = nixpkgs.lib;
-    user = "crimsx";
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./modules/hosts/L7490/default.nix
+        ./modules/hosts/L7490/configuration.nix
+        ./modules/hosts/L7490/hardware.nix
+        ./modules/features/core.nix
+        ./modules/features/users.nix
+        ./modules/features/hyprland.nix
+        ./modules/features/niri.nix
+        ./modules/features/stylix.nix
+        ./modules/features/virt-manager.nix
+        {
+          nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
+            modules = [
+              { config, lib, pkgs, modulesPath, ... }: {
+                imports = [
+                  (modulesPath + "/installer/scan/not-detected.nix")
+                ];
+              }
+              ./hosts/desktop/configuration.nix
+            ];
+          };
+        }
+        {
+          nixosConfigurations.exampleIso = inputs.nixpkgs.lib.nixosSystem {
+            modules = [
+              ./hosts/isoimage/configuration.nix
+            ];
+          };
+        }
+      ];
     };
-    in {
-      nixosConfigurations = {
-        /*
-	host = lib.nixosSystem {
-	  inherit system;
-	  modules = [
-	    ./hosts/$()/configuration.nix
-	  ];
-	  specialArgs = { inherit inputs username; };
-	};
-	*/
-
-        L7490 = nixpkgs.lib.nixosSystem {
-	  modules = [
-	    #./hosts/L7490
-	    ./configuration.nix
-	    #./hardware-configuration.nix
-	    ({ pkgs, ... }: {
-	      programs.neovim.defaultEditor = true;
-	    })
-	    home-manager.nixosModules.home-manager {
-	      home-manager = {
-	        useGlobalPkgs = true;
-	        useUserPackages = true;
-	        users.crimsx = import ./home.nix;
-	        backupFileExtension = "backup";
-	      };
-	      /*
-	      home-manager.users.crimsx = {
-	        programs.fastfetch.enable = true;
-	      };
-	      */
-	    }
-	    inputs.stylix.nixosModules.stylix
-	    /*
-	    waybar = import ./nixos/modules/waybar.nix;
-	    default = { ... }: {
-	      imports = [
-	        #home-manager.nixosModules.home-manager
-		#self.nixosModules.
-	      ];
-	    };
-	    */
-	  ];
-	  specialArgs = {
-	    inherit inputs system user;
-	    hostname = "L7490";
-	  };
-	};
-
-	exampleIso = nixpkgs.lib.nixosSystem {
-	  specialArgs = { inherit inputs; };
-	  modules = [
-	    ./hosts/isoimage/configuration.nix
-	  ];
-	};
-
-	forAllSystems = nixpkgs.libgenAttrs system;
-
-	/*
-	homeConfigurations = {
-	  "${user}@..." = home-manager.libhomeManagerConfiguration {
-	    inherit pkgs;
-	    extraSpecialArgs = { inherit inputs username; };
-	    modules = [
-	      ./
-	    ];
-	};
-	*/
-      };
-    };
-  }
+}
