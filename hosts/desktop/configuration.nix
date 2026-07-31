@@ -2,10 +2,13 @@
 {
   imports = [
     self.nixosModules.core
+    self.nixosModules.flatpak
     self.nixosModules.users
     self.nixosModules.hyprland
+    self.nixosModules.mullvad
     self.nixosModules.niri
     self.nixosModules.niri-stylix
+    self.nixosModules.steam
     self.nixosModules.virt-manager
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix

@@ -69,7 +69,6 @@
       dunst
       swaynotificationcenter
       mako
-      steam
       discord-ptb
       vesktop
       bitwarden-desktop
@@ -88,7 +87,6 @@
       pipes
       wl-clipboard
       foot
-      mullvad-vpn
       mpv
       vlc
       anki
