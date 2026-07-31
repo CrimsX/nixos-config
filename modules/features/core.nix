@@ -6,7 +6,7 @@
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
-    networking.networkManager.enable = true;
+    networking.networkmanager.enable = true;
 
     time.timeZone = "America/Edmonton";
 
@@ -51,7 +51,7 @@
       yazi
       nautilus
       nemo
-      dolphin
+      kdePackages.dolphin
       swaybg
       mpvpaper
       hyprpaper
@@ -72,7 +72,7 @@
       steam
       discord-ptb
       vesktop
-      bitwarden
+      bitwarden-desktop
       godot
       obs-studio
       obsidian
@@ -101,7 +101,6 @@
       lsfg-vk-ui
       graphite
       pixieditor
-      winboat
       stasis
       ardour
       pinta

@@ -1,3 +1,3 @@
 sudo nix-collect-garbage --delete-older-than 30d
-suod nixos-rebuild boot --upgrade
+sudo nixos-rebuild boot --upgrade --flake .#L7490
 flatpak update -y

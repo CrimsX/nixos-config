@@ -32,7 +32,7 @@
     };
   };
 
-  outputs = inputs:
+  outputs = inputs@{ self, ... }:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules/hosts/L7490/default.nix
@@ -45,19 +45,21 @@
         ./modules/features/stylix.nix
         ./modules/features/virt-manager.nix
         {
-          nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
+          flake.nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
             modules = [
-              { config, lib, pkgs, modulesPath, ... }: {
+              ({ config, lib, pkgs, modulesPath, ... }: {
                 imports = [
                   (modulesPath + "/installer/scan/not-detected.nix")
                 ];
-              }
-              ./hosts/desktop/configuration.nix
+                fileSystems."/" = { device = "tmpfs"; fsType = "tmpfs"; };
+              })
+              (import ./hosts/desktop/configuration.nix { inherit inputs self; })
             ];
           };
         }
         {
-          nixosConfigurations.exampleIso = inputs.nixpkgs.lib.nixosSystem {
+          flake.nixosConfigurations.exampleIso = inputs.nixpkgs.lib.nixosSystem {
             modules = [
               ./hosts/isoimage/configuration.nix
             ];

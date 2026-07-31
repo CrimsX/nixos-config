@@ -14,7 +14,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.crimsx = import ../users/crimsx/home.nix;
+    users.crimsx = import ../../users/crimsx/home.nix;
     backupFileExtension = "backup";
   };
 
