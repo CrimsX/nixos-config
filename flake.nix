@@ -23,6 +23,8 @@
         ./modules/hosts/L7490/default.nix
         ./modules/hosts/L7490/configuration.nix
         ./modules/hosts/L7490/hardware.nix
+	./modules/hosts/desktop/default.nix
+	./modules/hosts/desktop/configuration.nix
         ./modules/hosts/desktop/hardware.nix
         ./modules/features/core.nix
         ./modules/features/flatpak.nix
@@ -34,12 +36,14 @@
         ./modules/features/stylix.nix
         ./modules/features/virt-manager.nix
         {
+	/*
           flake.nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
             modules = [
               self.nixosModules.desktop-hardware
               (import ./hosts/desktop/configuration.nix { inherit inputs self; })
             ];
           };
+	  */
         }
         {
           flake.nixosConfigurations.exampleIso = inputs.nixpkgs.lib.nixosSystem {

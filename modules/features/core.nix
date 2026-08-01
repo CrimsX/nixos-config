@@ -1,8 +1,13 @@
-{ ... }:
+{ lib, ... }:
 {
   flake.nixosModules.core = { pkgs, ... }: {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader = {
+	grub.enable = lib.mkForce false;
+	systemd-boot.enable = false;
+	refind.enable = true;
+	efi.canTouchEfiVariables = true;
+	timeout = 10;
+};
 
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -69,7 +74,7 @@
       dunst
       swaynotificationcenter
       mako
-      discord-ptb
+      #discord-ptb
       vesktop
       bitwarden-desktop
       godot
@@ -91,7 +96,7 @@
       vlc
       anki
       qbittorrent
-      aseprite
+      #aseprite
       zed-editor
       librewolf
       ani-cli

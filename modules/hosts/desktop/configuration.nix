@@ -1,0 +1,31 @@
+{ inputs, self, ... }:
+{
+  flake.nixosModules.desktop-configuration = {
+    imports = [
+      self.nixosModules.desktop-hardware
+      self.nixosModules.core
+      self.nixosModules.flatpak
+      self.nixosModules.users
+      self.nixosModules.hyprland
+      self.nixosModules.mullvad
+      self.nixosModules.niri
+      self.nixosModules.niri-stylix
+      self.nixosModules.steam
+      self.nixosModules.virt-manager
+      inputs.home-manager.nixosModules.home-manager
+      inputs.stylix.nixosModules.stylix
+    ];
+
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      users.crimsx = import ../../../users/crimsx/home.nix;
+      backupFileExtension = "backup";
+    };
+
+    programs.neovim.defaultEditor = true;
+
+    networking.hostName = "desktop";
+    system.stateVersion = "25.05";
+  };
+}
