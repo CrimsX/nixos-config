@@ -1,0 +1,124 @@
+Commented configuration preserved from commit 1c3fe10
+======================================================
+
+These snippets were commented out in commit 1c3fe10 and were removed or
+changed during the later configuration reorganisation. They are archival
+reference only: this file is not imported or evaluated by Nix.
+
+
+Source: configuration.nix
+-------------------------
+
+/*
+hardware.disko.enable = true;
+programs.nix-ld.enable = true;
+common.services.appimage.enable = true;
+boot.loader.grub = {
+  efiSupport = true;
+  efiInstallAsRemovable = true;
+};
+
+networking.hostName = "";
+networking.firewall.enable = true;
+networking.firewall.allowedTCPPorts = [
+  22
+  80
+  443
+];
+networking.firewall.allowedUDPPorts = [
+];
+*/
+
+# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+# Disabled package entries from environment.systemPackages:
+#yin
+#zen
+#catpuccin-cursors
+
+
+Source: flake.nix — disabled input stubs
+-----------------------------------------
+
+#neovim = {
+#  url =
+#  flake = false;
+#};
+
+#zen-browser = {
+#  url =
+#  inputs.nixpkgs.follows = "nixpkgs";
+#};
+
+#thunderbird-catppuccin = {
+#  url =
+#  flake = false;
+#};
+
+
+Source: flake.nix — generic host template
+-------------------------------------------
+
+/*
+host = lib.nixosSystem {
+  inherit system;
+  modules = [
+    ./hosts/$()/configuration.nix
+  ];
+  specialArgs = { inherit inputs username; };
+};
+*/
+
+
+Source: flake.nix — disabled L7490 module paths
+------------------------------------------------
+
+#./hosts/L7490
+#./hardware-configuration.nix
+
+
+Source: flake.nix — Home Manager fastfetch experiment
+-------------------------------------------------------
+
+/*
+home-manager.users.crimsx = {
+  programs.fastfetch.enable = true;
+};
+*/
+
+
+Source: flake.nix — Waybar/default module experiment
+-----------------------------------------------------
+
+/*
+waybar = import ./nixos/modules/waybar.nix;
+default = { ... }: {
+  imports = [
+    #home-manager.nixosModules.home-manager
+    #self.nixosModules.
+  ];
+};
+*/
+
+
+Source: flake.nix — standalone Home Manager template
+-----------------------------------------------------
+
+/*
+homeConfigurations = {
+  "${user}@..." = home-manager.libhomeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = { inherit inputs username; };
+    modules = [
+      ./
+    ];
+  };
+};
+*/
+
+
+Source: hardware-configuration.nix
+----------------------------------
+
+# networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
+# networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
