@@ -25,6 +25,13 @@
 
     programs.neovim.defaultEditor = true;
 
+    /*
+    hardware.disko.enable = true;
+    programs.nix-ld.enable = true;
+    common.services.appimage.enable = true;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+    */
+
     networking.hostName = "desktop";
     system.stateVersion = "25.05";
   };

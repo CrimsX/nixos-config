@@ -1,10 +1,18 @@
 {
-  description = "My NixOS Flake";
+  description = "
+    My NixOS Flake
+  ";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nipkgs-stable.url = "nixpkgs/nixos-25.05";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+      inputs.nispkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,6 +23,8 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs = inputs@{ self, ... }:

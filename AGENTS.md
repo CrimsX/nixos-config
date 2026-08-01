@@ -82,6 +82,7 @@ Conflicting dotfiles are backed up with a `.backup` extension.
 - `nixpkgs-stable` → `nixos-25.05`
 - `flake-parts`
 - `home-manager`, `stylix`, `nix-flatpak`, `niri`, `xwayland-satellite`
+- `zen-browser` → `github:0xc000022070/zen-browser-flake` (not in nixpkgs; used in `core.nix` systemPackages)
 
 ## Gotchas
 

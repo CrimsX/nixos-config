@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.nixosModules.core = { pkgs, ... }: {
     boot.loader = {
@@ -33,22 +33,32 @@
       neovim
       wget
       waybar
+
       ripgrep
       fd
       lazygit
       fzf
+
       btop
       tmux
       cava
+
+      # Screen locker
       swaylock
       hyprlock
+
+      # Terminal
       alacritty
       kitty
       ghostty
+
+      # App launcher
       rofi
       wofi
       anyrun
       fuzzel
+
+      # File manager
       xfce.thunar
       xfce.thunar-volman
       xfce.thunar-archive-plugin
@@ -57,12 +67,18 @@
       nautilus
       nemo
       kdePackages.dolphin
+
+      # Wallpaper
       swaybg
       mpvpaper
       hyprpaper
+      #yin
       swww
+
+      # Idle daemon
       swayidle
       hypridle
+
       lightdm
       tlp
       fish
@@ -71,48 +87,79 @@
       hyprshot
       grim
       slurp
+      #zen
+
+      # Notifications
       dunst
       swaynotificationcenter
       mako
+
+      # Apps
       #discord-ptb
       vesktop
       bitwarden-desktop
       godot
       obs-studio
       obsidian
+
       ffmpeg
       imagemagick
       python3
       pyprland
+
+      # Theme
       catppuccin-gtk
       catppuccin-kvantum
+      # Catpuccin-cursors
       papirus-icon-theme
+
       syncthing
       zathura
+
       pipes
       wl-clipboard
       foot
       mpv
       vlc
+      thunderbird
       anki
       qbittorrent
+
+
       #aseprite
+      godot
+
       zed-editor
       librewolf
+      (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default)
       ani-cli
+
       lsfg-vk
       lsfg-vk-ui
+
       graphite
       pixieditor
+      winboat
       stasis
       ardour
       pinta
       lmms
       kdePackages.kolourpaint
+
       zoxide
       bat
       eza
+
+      grim
+      slurp
       helix
+
+      /*
+      programs.virt-manager.enable = true;
+      users.groups.libirtd.members = ["crimsx"];
+      virtualisation.libvirtd.enable = true;
+      virutalisation.spaceUSBRedirection.enable = true;
+      */
     ];
   };
 }
